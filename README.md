@@ -2,7 +2,7 @@
 
 Salieri is a header which provides definitions for Microsoft's
 [source-code annotation language
-(SAL)](https://msdn.microsoft.com/en-us/library/hh916383.aspx).
+(SAL)](https://docs.microsoft.com/en-us/visualstudio/code-quality/understanding-sal).
 Simply drop the header into your code and use it instead of including
 `<sal.h>` directly, and you can use SAL annotations even if you want
 your program to be portable to compilers which don't support it.
@@ -11,9 +11,9 @@ your program to be portable to compilers which don't support it.
 
 SAL provides lots of annotations you can use to describe the behavior
 of your program.  There is a [Best Practices and Examples
-(SAL)](https://msdn.microsoft.com/en-us/library/jj159525.aspx) page on
-MSDN if you want to get a very quick idea of how it works, but the
-basic idea is that you end up with something like this:
+(SAL)](https://docs.microsoft.com/en-us/visualstudio/code-quality/best-practices-and-examples-sal)
+page on MSDN if you want to get a very quick idea of how it works, but
+the basic idea is that you end up with something like this:
 
 ```c
 #include <sal.h>
