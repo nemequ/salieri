@@ -65,6 +65,22 @@
 #  define SALIERI_DEFINED_In
 #endif
 
+#if defined(__in_ecount) && defined(SALIERI_DEFINED__in_ecount)
+#  undef __in_ecount
+#endif
+#if !defined(__in_ecount)
+#  define __in_ecount(s)
+#  define SALIERI_DEFINED__in_ecount(s)
+#endif
+
+#if defined(__in_ecount_opt) && defined(SALIERI_DEFINED__in_ecount_opt)
+#  undef __in_ecount_opt
+#endif
+#if !defined(__in_ecount_opt)
+#  define __in_ecount_opt(s)
+#  define SALIERI_DEFINED__in_ecount_opt(s)
+#endif
+
 #if defined(_Out_) && defined(SALIERI_DEFINED_Out)
 #  undef _Out_
 #endif
@@ -143,6 +159,14 @@
 #if !defined(_Out_writes_bytes_)
 #  define _Out_writes_bytes_(s)
 #  define SALIERI_DEFINED_Out_writes_bytes
+#endif
+
+#if defined(_Out_writes_bytes_opt_) && defined(SALIERI_DEFINED_Out_writes_bytes_opt_)
+#  undef _Out_writes_bytes_opt_
+#endif
+#if !defined(_Out_writes_bytes_opt_)
+#  define _Out_writes_bytes_opt_(s)
+#  define SALIERI_DEFINED_Out_writes_bytes_opt_
 #endif
 
 #if defined(_Out_writes_z_) && defined(SALIERI_DEFINED_Out_writes_z)
@@ -369,6 +393,14 @@
 #if !defined(_Inout_opt_z_)
 #  define _Inout_opt_z_
 #  define SALIERI_DEFINED_Inout_opt_z
+#endif
+
+#if defined(_Inout_opt_bytecount_) && defined(SALIERI_DEFINED_Inout_opt_bytecount_)
+#  undef _Inout_opt_bytecount_
+#endif
+#if !defined(_Inout_opt_bytecount_)
+#  define _Inout_opt_bytecount_(s)
+#  define SALIERI_DEFINED_Inout_opt_bytecount_(s)
 #endif
 
 #if defined(_In_reads_opt_) && defined(SALIERI_DEFINED_In_reads_opt)
@@ -627,6 +659,14 @@
 #if !defined(_COM_Outptr_result_maybenull_)
 #  define _COM_Outptr_result_maybenull_
 #  define SALIERI_DEFINED_COM_Outptr_result_maybenull
+#endif
+
+#if defined(_COM_Outptr_opt_result_maybenull_) && defined(SALIERI_DEFINED_COM_Outptr_opt_result_maybenull)
+#  undef _COM_Outptr_opt_result_maybenull_
+#endif
+#if !defined(_COM_Outptr_opt_result_maybenull_)
+#  define _COM_Outptr_opt_result_maybenull_
+#  define SALIERI_DEFINED_COM_Outptr_opt_result_maybenull
 #endif
 
 #if defined(_Outptr_opt_result_maybenull_) && defined(SALIERI_DEFINED_Outptr_opt_result_maybenull)
