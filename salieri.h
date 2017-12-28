@@ -1,6 +1,6 @@
 /**
  * Salieri
- * v1
+ * v2
  *
  * Salieri is a header which contains definitions for the Microsoft
  * source-code annotation language (SAL).  It is *not* an
@@ -38,7 +38,7 @@
  * project.
  */
 
-#if !defined(SALIERI_VERSION) || (SALIERI_VERSION < 1)
+#if !defined(SALIERI_VERSION) || (SALIERI_VERSION < 2)
 
 /***
  ** Obsolete declspec-style macros.
@@ -2922,6 +2922,6 @@
 #  undef SALIERI_VERSION
 #endif
 
-#define SALIERI_VERSION 1
+#define SALIERI_VERSION 2
 
 #endif /* !defined(SALIERI_VERSION) || (SALIERI_VERSION < X) */
