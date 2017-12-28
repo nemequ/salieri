@@ -25,20 +25,8 @@
  *   without any warranty.
  *
  *   For details, see <http://creativecommons.org/publicdomain/zero/1.0/>.
- */
-
-#if !defined(SALIERI_VERSION) || (SALIERI_VERSION < 1)
-
-/* TODO: figure out when <sal.h> first appeared. */
-#if defined(_MSC_VER)
-#  include <sal.h>
-#elif defined(__has_include)
-#  if __has_include(<sal.h>)
-#    include <sal.h>
-#  endif
-#endif
-
-/* The main concern for the implementation is that we don't want to
+ *
+ * The main concern for the implementation is that we don't want to
  * replace annotations from <sal.h>, but we *do* want to replace
  * annotations from older versions of Salieri.  To keep track of
  * everything, when we (Salieri) define a SAL annotation, we also
@@ -49,6 +37,1173 @@
  * This means you can safely use Salieri in a public header in your
  * project.
  */
+
+#if !defined(SALIERI_VERSION) || (SALIERI_VERSION < 1)
+
+/***
+ ** Obsolete declspec-style macros.
+ **
+ ** https://msdn.microsoft.com/en-us/library/windows/desktop/aa383701(v=vs.85).aspx
+ ***/
+
+#if defined(_MSC_VER) && (_MSC_VER >= 1400)
+#  include <CodeAnalysis/SourceAnnotations.h>
+#elif defined(__has_include)
+#  if __has_include(<CodeAnalysis/SourceAnnotations.h>)
+#    include <CodeAnalysis/SourceAnnotations.h>
+#  endif
+#endif
+
+#if defined(__bcount) && defined(SALIERI_DEFINED__bcount)
+#  undef __bcount
+#  undef SALIERI_DEFINED__bcount
+#endif
+#if !defined(__bcount)
+#  define __bcount(size)
+#  define SALIERI_DEFINED__bcount
+#endif
+
+#if defined(__bcount_opt) && defined(SALIERI_DEFINED__bcount_opt)
+#  undef __bcount_opt
+#  undef SALIERI_DEFINED__bcount_opt
+#endif
+#if !defined(__bcount_opt)
+#  define __bcount_opt(size)
+#  define SALIERI_DEFINED__bcount_opt
+#endif
+
+#if defined(__deref_bcount) && defined(SALIERI_DEFINED__deref_bcount)
+#  undef __deref_bcount
+#  undef SALIERI_DEFINED__deref_bcount
+#endif
+#if !defined(__deref_bcount)
+#  define __deref_bcount(size)
+#  define SALIERI_DEFINED__deref_bcount
+#endif
+
+#if defined(__deref_bcount_opt) && defined(SALIERI_DEFINED__deref_bcount_opt)
+#  undef __deref_bcount_opt
+#  undef SALIERI_DEFINED__deref_bcount_opt
+#endif
+#if !defined(__deref_bcount_opt)
+#  define __deref_bcount_opt(size)
+#  define SALIERI_DEFINED__deref_bcount_opt
+#endif
+
+#if defined(__deref_ecount) && defined(SALIERI_DEFINED__deref_ecount)
+#  undef __deref_ecount
+#  undef SALIERI_DEFINED__deref_ecount
+#endif
+#if !defined(__deref_ecount)
+#  define __deref_ecount(size)
+#  define SALIERI_DEFINED__deref_ecount
+#endif
+
+#if defined(__deref_ecount_opt) && defined(SALIERI_DEFINED__deref_ecount_opt)
+#  undef __deref_ecount_opt
+#  undef SALIERI_DEFINED__deref_ecount_opt
+#endif
+#if !defined(__deref_ecount_opt)
+#  define __deref_ecount_opt(size)
+#  define SALIERI_DEFINED__deref_ecount_opt
+#endif
+
+#if defined(__deref_in) && defined(SALIERI_DEFINED__deref_in)
+#  undef __deref_in
+#  undef SALIERI_DEFINED__deref_in
+#endif
+#if !defined(__deref_in)
+#  define __deref_in
+#  define SALIERI_DEFINED__deref_in
+#endif
+
+#if defined(__deref_in_bcount) && defined(SALIERI_DEFINED__deref_in_bcount)
+#  undef __deref_in_bcount
+#  undef SALIERI_DEFINED__deref_in_bcount
+#endif
+#if !defined(__deref_in_bcount)
+#  define __deref_in_bcount(size)
+#  define SALIERI_DEFINED__deref_in_bcount
+#endif
+
+#if defined(__deref_in_bcount_opt) && defined(SALIERI_DEFINED__deref_in_bcount_opt)
+#  undef __deref_in_bcount_opt
+#  undef SALIERI_DEFINED__deref_in_bcount_opt
+#endif
+#if !defined(__deref_in_bcount_opt)
+#  define __deref_in_bcount_opt(size)
+#  define SALIERI_DEFINED__deref_in_bcount_opt
+#endif
+
+#if defined(__deref_in_ecount) && defined(SALIERI_DEFINED__deref_in_ecount)
+#  undef __deref_in_ecount
+#  undef SALIERI_DEFINED__deref_in_ecount
+#endif
+#if !defined(__deref_in_ecount)
+#  define __deref_in_ecount(size)
+#  define SALIERI_DEFINED__deref_in_ecount
+#endif
+
+#if defined(__deref_in_ecount_opt) && defined(SALIERI_DEFINED__deref_in_ecount_opt)
+#  undef __deref_in_ecount_opt
+#  undef SALIERI_DEFINED__deref_in_ecount_opt
+#endif
+#if !defined(__deref_in_ecount_opt)
+#  define __deref_in_ecount_opt(size)
+#  define SALIERI_DEFINED__deref_in_ecount_opt
+#endif
+
+#if defined(__deref_in_opt) && defined(SALIERI_DEFINED__deref_in_opt)
+#  undef __deref_in_opt
+#  undef SALIERI_DEFINED__deref_in_opt
+#endif
+#if !defined(__deref_in_opt)
+#  define __deref_in_opt
+#  define SALIERI_DEFINED__deref_in_opt
+#endif
+
+#if defined(__deref_inout) && defined(SALIERI_DEFINED__deref_inout)
+#  undef __deref_inout
+#  undef SALIERI_DEFINED__deref_inout
+#endif
+#if !defined(__deref_inout)
+#  define __deref_inout
+#  define SALIERI_DEFINED__deref_inout
+#endif
+
+#if defined(__deref_inout_bcount) && defined(SALIERI_DEFINED__deref_inout_bcount)
+#  undef __deref_inout_bcount
+#  undef SALIERI_DEFINED__deref_inout_bcount
+#endif
+#if !defined(__deref_inout_bcount)
+#  define __deref_inout_bcount(size)
+#  define SALIERI_DEFINED__deref_inout_bcount
+#endif
+
+#if defined(__deref_inout_bcount_full) && defined(SALIERI_DEFINED__deref_inout_bcount_full)
+#  undef __deref_inout_bcount_full
+#  undef SALIERI_DEFINED__deref_inout_bcount_full
+#endif
+#if !defined(__deref_inout_bcount_full)
+#  define __deref_inout_bcount_full(size)
+#  define SALIERI_DEFINED__deref_inout_bcount_full
+#endif
+
+#if defined(__deref_inout_bcount_full_opt) && defined(SALIERI_DEFINED__deref_inout_bcount_full_opt)
+#  undef __deref_inout_bcount_full_opt
+#  undef SALIERI_DEFINED__deref_inout_bcount_full_opt
+#endif
+#if !defined(__deref_inout_bcount_full_opt)
+#  define __deref_inout_bcount_full_opt(size)
+#  define SALIERI_DEFINED__deref_inout_bcount_full_opt
+#endif
+
+#if defined(__deref_inout_bcount_opt) && defined(SALIERI_DEFINED__deref_inout_bcount_opt)
+#  undef __deref_inout_bcount_opt
+#  undef SALIERI_DEFINED__deref_inout_bcount_opt
+#endif
+#if !defined(__deref_inout_bcount_opt)
+#  define __deref_inout_bcount_opt(size)
+#  define SALIERI_DEFINED__deref_inout_bcount_opt
+#endif
+
+#if defined(__deref_inout_bcount_part) && defined(SALIERI_DEFINED__deref_inout_bcount_part)
+#  undef __deref_inout_bcount_part
+#  undef SALIERI_DEFINED__deref_inout_bcount_part
+#endif
+#if !defined(__deref_inout_bcount_part)
+#  define __deref_inout_bcount_part(size,length)
+#  define SALIERI_DEFINED__deref_inout_bcount_part
+#endif
+
+#if defined(__deref_inout_bcount_part_opt) && defined(SALIERI_DEFINED__deref_inout_bcount_part_opt)
+#  undef __deref_inout_bcount_part_opt
+#  undef SALIERI_DEFINED__deref_inout_bcount_part_opt
+#endif
+#if !defined(__deref_inout_bcount_part_opt)
+#  define __deref_inout_bcount_part_opt(size,length)
+#  define SALIERI_DEFINED__deref_inout_bcount_part_opt
+#endif
+
+#if defined(__deref_inout_ecount) && defined(SALIERI_DEFINED__deref_inout_ecount)
+#  undef __deref_inout_ecount
+#  undef SALIERI_DEFINED__deref_inout_ecount
+#endif
+#if !defined(__deref_inout_ecount)
+#  define __deref_inout_ecount(size)
+#  define SALIERI_DEFINED__deref_inout_ecount
+#endif
+
+#if defined(__deref_inout_ecount_full) && defined(SALIERI_DEFINED__deref_inout_ecount_full)
+#  undef __deref_inout_ecount_full
+#  undef SALIERI_DEFINED__deref_inout_ecount_full
+#endif
+#if !defined(__deref_inout_ecount_full)
+#  define __deref_inout_ecount_full(size)
+#  define SALIERI_DEFINED__deref_inout_ecount_full
+#endif
+
+#if defined(__deref_inout_ecount_full_opt) && defined(SALIERI_DEFINED__deref_inout_ecount_full_opt)
+#  undef __deref_inout_ecount_full_opt
+#  undef SALIERI_DEFINED__deref_inout_ecount_full_opt
+#endif
+#if !defined(__deref_inout_ecount_full_opt)
+#  define __deref_inout_ecount_full_opt(size)
+#  define SALIERI_DEFINED__deref_inout_ecount_full_opt
+#endif
+
+#if defined(__deref_inout_ecount_opt) && defined(SALIERI_DEFINED__deref_inout_ecount_opt)
+#  undef __deref_inout_ecount_opt
+#  undef SALIERI_DEFINED__deref_inout_ecount_opt
+#endif
+#if !defined(__deref_inout_ecount_opt)
+#  define __deref_inout_ecount_opt(size)
+#  define SALIERI_DEFINED__deref_inout_ecount_opt
+#endif
+
+#if defined(__deref_inout_ecount_part) && defined(SALIERI_DEFINED__deref_inout_ecount_part)
+#  undef __deref_inout_ecount_part
+#  undef SALIERI_DEFINED__deref_inout_ecount_part
+#endif
+#if !defined(__deref_inout_ecount_part)
+#  define __deref_inout_ecount_part(size,length)
+#  define SALIERI_DEFINED__deref_inout_ecount_part
+#endif
+
+#if defined(__deref_inout_ecount_part_opt) && defined(SALIERI_DEFINED__deref_inout_ecount_part_opt)
+#  undef __deref_inout_ecount_part_opt
+#  undef SALIERI_DEFINED__deref_inout_ecount_part_opt
+#endif
+#if !defined(__deref_inout_ecount_part_opt)
+#  define __deref_inout_ecount_part_opt(size,length)
+#  define SALIERI_DEFINED__deref_inout_ecount_part_opt
+#endif
+
+#if defined(__deref_inout_opt) && defined(SALIERI_DEFINED__deref_inout_opt)
+#  undef __deref_inout_opt
+#  undef SALIERI_DEFINED__deref_inout_opt
+#endif
+#if !defined(__deref_inout_opt)
+#  define __deref_inout_opt
+#  define SALIERI_DEFINED__deref_inout_opt
+#endif
+
+#if defined(__deref_opt_bcount) && defined(SALIERI_DEFINED__deref_opt_bcount)
+#  undef __deref_opt_bcount
+#  undef SALIERI_DEFINED__deref_opt_bcount
+#endif
+#if !defined(__deref_opt_bcount)
+#  define __deref_opt_bcount(size)
+#  define SALIERI_DEFINED__deref_opt_bcount
+#endif
+
+#if defined(__deref_opt_bcount_opt) && defined(SALIERI_DEFINED__deref_opt_bcount_opt)
+#  undef __deref_opt_bcount_opt
+#  undef SALIERI_DEFINED__deref_opt_bcount_opt
+#endif
+#if !defined(__deref_opt_bcount_opt)
+#  define __deref_opt_bcount_opt(size)
+#  define SALIERI_DEFINED__deref_opt_bcount_opt
+#endif
+
+#if defined(__deref_opt_ecount) && defined(SALIERI_DEFINED__deref_opt_ecount)
+#  undef __deref_opt_ecount
+#  undef SALIERI_DEFINED__deref_opt_ecount
+#endif
+#if !defined(__deref_opt_ecount)
+#  define __deref_opt_ecount(size)
+#  define SALIERI_DEFINED__deref_opt_ecount
+#endif
+
+#if defined(__deref_opt_ecount_opt) && defined(SALIERI_DEFINED__deref_opt_ecount_opt)
+#  undef __deref_opt_ecount_opt
+#  undef SALIERI_DEFINED__deref_opt_ecount_opt
+#endif
+#if !defined(__deref_opt_ecount_opt)
+#  define __deref_opt_ecount_opt(size)
+#  define SALIERI_DEFINED__deref_opt_ecount_opt
+#endif
+
+#if defined(__deref_opt_in) && defined(SALIERI_DEFINED__deref_opt_in)
+#  undef __deref_opt_in
+#  undef SALIERI_DEFINED__deref_opt_in
+#endif
+#if !defined(__deref_opt_in)
+#  define __deref_opt_in
+#  define SALIERI_DEFINED__deref_opt_in
+#endif
+
+#if defined(__deref_opt_in_bcount) && defined(SALIERI_DEFINED__deref_opt_in_bcount)
+#  undef __deref_opt_in_bcount
+#  undef SALIERI_DEFINED__deref_opt_in_bcount
+#endif
+#if !defined(__deref_opt_in_bcount)
+#  define __deref_opt_in_bcount(size)
+#  define SALIERI_DEFINED__deref_opt_in_bcount
+#endif
+
+#if defined(__deref_opt_in_bcount_opt) && defined(SALIERI_DEFINED__deref_opt_in_bcount_opt)
+#  undef __deref_opt_in_bcount_opt
+#  undef SALIERI_DEFINED__deref_opt_in_bcount_opt
+#endif
+#if !defined(__deref_opt_in_bcount_opt)
+#  define __deref_opt_in_bcount_opt(size)
+#  define SALIERI_DEFINED__deref_opt_in_bcount_opt
+#endif
+
+#if defined(__deref_opt_in_ecount) && defined(SALIERI_DEFINED__deref_opt_in_ecount)
+#  undef __deref_opt_in_ecount
+#  undef SALIERI_DEFINED__deref_opt_in_ecount
+#endif
+#if !defined(__deref_opt_in_ecount)
+#  define __deref_opt_in_ecount(size)
+#  define SALIERI_DEFINED__deref_opt_in_ecount
+#endif
+
+#if defined(__deref_opt_in_ecount_opt) && defined(SALIERI_DEFINED__deref_opt_in_ecount_opt)
+#  undef __deref_opt_in_ecount_opt
+#  undef SALIERI_DEFINED__deref_opt_in_ecount_opt
+#endif
+#if !defined(__deref_opt_in_ecount_opt)
+#  define __deref_opt_in_ecount_opt(size)
+#  define SALIERI_DEFINED__deref_opt_in_ecount_opt
+#endif
+
+#if defined(__deref_opt_in_opt) && defined(SALIERI_DEFINED__deref_opt_in_opt)
+#  undef __deref_opt_in_opt
+#  undef SALIERI_DEFINED__deref_opt_in_opt
+#endif
+#if !defined(__deref_opt_in_opt)
+#  define __deref_opt_in_opt
+#  define SALIERI_DEFINED__deref_opt_in_opt
+#endif
+
+#if defined(__deref_opt_inout) && defined(SALIERI_DEFINED__deref_opt_inout)
+#  undef __deref_opt_inout
+#  undef SALIERI_DEFINED__deref_opt_inout
+#endif
+#if !defined(__deref_opt_inout)
+#  define __deref_opt_inout
+#  define SALIERI_DEFINED__deref_opt_inout
+#endif
+
+#if defined(__deref_opt_inout_bcount) && defined(SALIERI_DEFINED__deref_opt_inout_bcount)
+#  undef __deref_opt_inout_bcount
+#  undef SALIERI_DEFINED__deref_opt_inout_bcount
+#endif
+#if !defined(__deref_opt_inout_bcount)
+#  define __deref_opt_inout_bcount(size)
+#  define SALIERI_DEFINED__deref_opt_inout_bcount
+#endif
+
+#if defined(__deref_opt_inout_bcount_full) && defined(SALIERI_DEFINED__deref_opt_inout_bcount_full)
+#  undef __deref_opt_inout_bcount_full
+#  undef SALIERI_DEFINED__deref_opt_inout_bcount_full
+#endif
+#if !defined(__deref_opt_inout_bcount_full)
+#  define __deref_opt_inout_bcount_full(size)
+#  define SALIERI_DEFINED__deref_opt_inout_bcount_full
+#endif
+
+#if defined(__deref_opt_inout_bcount_full_opt) && defined(SALIERI_DEFINED__deref_opt_inout_bcount_full_opt)
+#  undef __deref_opt_inout_bcount_full_opt
+#  undef SALIERI_DEFINED__deref_opt_inout_bcount_full_opt
+#endif
+#if !defined(__deref_opt_inout_bcount_full_opt)
+#  define __deref_opt_inout_bcount_full_opt(size)
+#  define SALIERI_DEFINED__deref_opt_inout_bcount_full_opt
+#endif
+
+#if defined(__deref_opt_inout_bcount_opt) && defined(SALIERI_DEFINED__deref_opt_inout_bcount_opt)
+#  undef __deref_opt_inout_bcount_opt
+#  undef SALIERI_DEFINED__deref_opt_inout_bcount_opt
+#endif
+#if !defined(__deref_opt_inout_bcount_opt)
+#  define __deref_opt_inout_bcount_opt(size)
+#  define SALIERI_DEFINED__deref_opt_inout_bcount_opt
+#endif
+
+#if defined(__deref_opt_inout_bcount_part) && defined(SALIERI_DEFINED__deref_opt_inout_bcount_part)
+#  undef __deref_opt_inout_bcount_part
+#  undef SALIERI_DEFINED__deref_opt_inout_bcount_part
+#endif
+#if !defined(__deref_opt_inout_bcount_part)
+#  define __deref_opt_inout_bcount_part(size,length)
+#  define SALIERI_DEFINED__deref_opt_inout_bcount_part
+#endif
+
+#if defined(__deref_opt_inout_bcount_part_opt) && defined(SALIERI_DEFINED__deref_opt_inout_bcount_part_opt)
+#  undef __deref_opt_inout_bcount_part_opt
+#  undef SALIERI_DEFINED__deref_opt_inout_bcount_part_opt
+#endif
+#if !defined(__deref_opt_inout_bcount_part_opt)
+#  define __deref_opt_inout_bcount_part_opt(size,length)
+#  define SALIERI_DEFINED__deref_opt_inout_bcount_part_opt
+#endif
+
+#if defined(__deref_opt_inout_ecount) && defined(SALIERI_DEFINED__deref_opt_inout_ecount)
+#  undef __deref_opt_inout_ecount
+#  undef SALIERI_DEFINED__deref_opt_inout_ecount
+#endif
+#if !defined(__deref_opt_inout_ecount)
+#  define __deref_opt_inout_ecount(size)
+#  define SALIERI_DEFINED__deref_opt_inout_ecount
+#endif
+
+#if defined(__deref_opt_inout_ecount_full) && defined(SALIERI_DEFINED__deref_opt_inout_ecount_full)
+#  undef __deref_opt_inout_ecount_full
+#  undef SALIERI_DEFINED__deref_opt_inout_ecount_full
+#endif
+#if !defined(__deref_opt_inout_ecount_full)
+#  define __deref_opt_inout_ecount_full(size)
+#  define SALIERI_DEFINED__deref_opt_inout_ecount_full
+#endif
+
+#if defined(__deref_opt_inout_ecount_full_opt) && defined(SALIERI_DEFINED__deref_opt_inout_ecount_full_opt)
+#  undef __deref_opt_inout_ecount_full_opt
+#  undef SALIERI_DEFINED__deref_opt_inout_ecount_full_opt
+#endif
+#if !defined(__deref_opt_inout_ecount_full_opt)
+#  define __deref_opt_inout_ecount_full_opt(size)
+#  define SALIERI_DEFINED__deref_opt_inout_ecount_full_opt
+#endif
+
+#if defined(__deref_opt_inout_ecount_opt) && defined(SALIERI_DEFINED__deref_opt_inout_ecount_opt)
+#  undef __deref_opt_inout_ecount_opt
+#  undef SALIERI_DEFINED__deref_opt_inout_ecount_opt
+#endif
+#if !defined(__deref_opt_inout_ecount_opt)
+#  define __deref_opt_inout_ecount_opt(size)
+#  define SALIERI_DEFINED__deref_opt_inout_ecount_opt
+#endif
+
+#if defined(__deref_opt_inout_ecount_part) && defined(SALIERI_DEFINED__deref_opt_inout_ecount_part)
+#  undef __deref_opt_inout_ecount_part
+#  undef SALIERI_DEFINED__deref_opt_inout_ecount_part
+#endif
+#if !defined(__deref_opt_inout_ecount_part)
+#  define __deref_opt_inout_ecount_part(size,length)
+#  define SALIERI_DEFINED__deref_opt_inout_ecount_part
+#endif
+
+#if defined(__deref_opt_inout_ecount_part_opt) && defined(SALIERI_DEFINED__deref_opt_inout_ecount_part_opt)
+#  undef __deref_opt_inout_ecount_part_opt
+#  undef SALIERI_DEFINED__deref_opt_inout_ecount_part_opt
+#endif
+#if !defined(__deref_opt_inout_ecount_part_opt)
+#  define __deref_opt_inout_ecount_part_opt(size,length)
+#  define SALIERI_DEFINED__deref_opt_inout_ecount_part_opt
+#endif
+
+#if defined(__deref_opt_inout_opt) && defined(SALIERI_DEFINED__deref_opt_inout_opt)
+#  undef __deref_opt_inout_opt
+#  undef SALIERI_DEFINED__deref_opt_inout_opt
+#endif
+#if !defined(__deref_opt_inout_opt)
+#  define __deref_opt_inout_opt
+#  define SALIERI_DEFINED__deref_opt_inout_opt
+#endif
+
+#if defined(__deref_opt_out) && defined(SALIERI_DEFINED__deref_opt_out)
+#  undef __deref_opt_out
+#  undef SALIERI_DEFINED__deref_opt_out
+#endif
+#if !defined(__deref_opt_out)
+#  define __deref_opt_out
+#  define SALIERI_DEFINED__deref_opt_out
+#endif
+
+#if defined(__deref_opt_out_bcount) && defined(SALIERI_DEFINED__deref_opt_out_bcount)
+#  undef __deref_opt_out_bcount
+#  undef SALIERI_DEFINED__deref_opt_out_bcount
+#endif
+#if !defined(__deref_opt_out_bcount)
+#  define __deref_opt_out_bcount(size)
+#  define SALIERI_DEFINED__deref_opt_out_bcount
+#endif
+
+#if defined(__deref_opt_out_bcount_full) && defined(SALIERI_DEFINED__deref_opt_out_bcount_full)
+#  undef __deref_opt_out_bcount_full
+#  undef SALIERI_DEFINED__deref_opt_out_bcount_full
+#endif
+#if !defined(__deref_opt_out_bcount_full)
+#  define __deref_opt_out_bcount_full(size)
+#  define SALIERI_DEFINED__deref_opt_out_bcount_full
+#endif
+
+#if defined(__deref_opt_out_bcount_full_opt) && defined(SALIERI_DEFINED__deref_opt_out_bcount_full_opt)
+#  undef __deref_opt_out_bcount_full_opt
+#  undef SALIERI_DEFINED__deref_opt_out_bcount_full_opt
+#endif
+#if !defined(__deref_opt_out_bcount_full_opt)
+#  define __deref_opt_out_bcount_full_opt(size)
+#  define SALIERI_DEFINED__deref_opt_out_bcount_full_opt
+#endif
+
+#if defined(__deref_opt_out_bcount_opt) && defined(SALIERI_DEFINED__deref_opt_out_bcount_opt)
+#  undef __deref_opt_out_bcount_opt
+#  undef SALIERI_DEFINED__deref_opt_out_bcount_opt
+#endif
+#if !defined(__deref_opt_out_bcount_opt)
+#  define __deref_opt_out_bcount_opt(size)
+#  define SALIERI_DEFINED__deref_opt_out_bcount_opt
+#endif
+
+#if defined(__deref_opt_out_bcount_part) && defined(SALIERI_DEFINED__deref_opt_out_bcount_part)
+#  undef __deref_opt_out_bcount_part
+#  undef SALIERI_DEFINED__deref_opt_out_bcount_part
+#endif
+#if !defined(__deref_opt_out_bcount_part)
+#  define __deref_opt_out_bcount_part(size,length)
+#  define SALIERI_DEFINED__deref_opt_out_bcount_part
+#endif
+
+#if defined(__deref_opt_out_bcount_part_opt) && defined(SALIERI_DEFINED__deref_opt_out_bcount_part_opt)
+#  undef __deref_opt_out_bcount_part_opt
+#  undef SALIERI_DEFINED__deref_opt_out_bcount_part_opt
+#endif
+#if !defined(__deref_opt_out_bcount_part_opt)
+#  define __deref_opt_out_bcount_part_opt(size,length)
+#  define SALIERI_DEFINED__deref_opt_out_bcount_part_opt
+#endif
+
+#if defined(__deref_opt_out_ecount) && defined(SALIERI_DEFINED__deref_opt_out_ecount)
+#  undef __deref_opt_out_ecount
+#  undef SALIERI_DEFINED__deref_opt_out_ecount
+#endif
+#if !defined(__deref_opt_out_ecount)
+#  define __deref_opt_out_ecount(size)
+#  define SALIERI_DEFINED__deref_opt_out_ecount
+#endif
+
+#if defined(__deref_opt_out_ecount_full) && defined(SALIERI_DEFINED__deref_opt_out_ecount_full)
+#  undef __deref_opt_out_ecount_full
+#  undef SALIERI_DEFINED__deref_opt_out_ecount_full
+#endif
+#if !defined(__deref_opt_out_ecount_full)
+#  define __deref_opt_out_ecount_full(size)
+#  define SALIERI_DEFINED__deref_opt_out_ecount_full
+#endif
+
+#if defined(__deref_opt_out_ecount_full_opt) && defined(SALIERI_DEFINED__deref_opt_out_ecount_full_opt)
+#  undef __deref_opt_out_ecount_full_opt
+#  undef SALIERI_DEFINED__deref_opt_out_ecount_full_opt
+#endif
+#if !defined(__deref_opt_out_ecount_full_opt)
+#  define __deref_opt_out_ecount_full_opt(size)
+#  define SALIERI_DEFINED__deref_opt_out_ecount_full_opt
+#endif
+
+#if defined(__deref_opt_out_ecount_opt) && defined(SALIERI_DEFINED__deref_opt_out_ecount_opt)
+#  undef __deref_opt_out_ecount_opt
+#  undef SALIERI_DEFINED__deref_opt_out_ecount_opt
+#endif
+#if !defined(__deref_opt_out_ecount_opt)
+#  define __deref_opt_out_ecount_opt(size)
+#  define SALIERI_DEFINED__deref_opt_out_ecount_opt
+#endif
+
+#if defined(__deref_opt_out_ecount_part) && defined(SALIERI_DEFINED__deref_opt_out_ecount_part)
+#  undef __deref_opt_out_ecount_part
+#  undef SALIERI_DEFINED__deref_opt_out_ecount_part
+#endif
+#if !defined(__deref_opt_out_ecount_part)
+#  define __deref_opt_out_ecount_part(size,length)
+#  define SALIERI_DEFINED__deref_opt_out_ecount_part
+#endif
+
+#if defined(__deref_opt_out_ecount_part_opt) && defined(SALIERI_DEFINED__deref_opt_out_ecount_part_opt)
+#  undef __deref_opt_out_ecount_part_opt
+#  undef SALIERI_DEFINED__deref_opt_out_ecount_part_opt
+#endif
+#if !defined(__deref_opt_out_ecount_part_opt)
+#  define __deref_opt_out_ecount_part_opt(size,length)
+#  define SALIERI_DEFINED__deref_opt_out_ecount_part_opt
+#endif
+
+#if defined(__deref_opt_out_opt) && defined(SALIERI_DEFINED__deref_opt_out_opt)
+#  undef __deref_opt_out_opt
+#  undef SALIERI_DEFINED__deref_opt_out_opt
+#endif
+#if !defined(__deref_opt_out_opt)
+#  define __deref_opt_out_opt
+#  define SALIERI_DEFINED__deref_opt_out_opt
+#endif
+
+#if defined(__deref_out) && defined(SALIERI_DEFINED__deref_out)
+#  undef __deref_out
+#  undef SALIERI_DEFINED__deref_out
+#endif
+#if !defined(__deref_out)
+#  define __deref_out
+#  define SALIERI_DEFINED__deref_out
+#endif
+
+#if defined(__deref_out_bcount) && defined(SALIERI_DEFINED__deref_out_bcount)
+#  undef __deref_out_bcount
+#  undef SALIERI_DEFINED__deref_out_bcount
+#endif
+#if !defined(__deref_out_bcount)
+#  define __deref_out_bcount(size)
+#  define SALIERI_DEFINED__deref_out_bcount
+#endif
+
+#if defined(__deref_out_bcount_full) && defined(SALIERI_DEFINED__deref_out_bcount_full)
+#  undef __deref_out_bcount_full
+#  undef SALIERI_DEFINED__deref_out_bcount_full
+#endif
+#if !defined(__deref_out_bcount_full)
+#  define __deref_out_bcount_full(size)
+#  define SALIERI_DEFINED__deref_out_bcount_full
+#endif
+
+#if defined(__deref_out_bcount_full_opt) && defined(SALIERI_DEFINED__deref_out_bcount_full_opt)
+#  undef __deref_out_bcount_full_opt
+#  undef SALIERI_DEFINED__deref_out_bcount_full_opt
+#endif
+#if !defined(__deref_out_bcount_full_opt)
+#  define __deref_out_bcount_full_opt(size)
+#  define SALIERI_DEFINED__deref_out_bcount_full_opt
+#endif
+
+#if defined(__deref_out_bcount_opt) && defined(SALIERI_DEFINED__deref_out_bcount_opt)
+#  undef __deref_out_bcount_opt
+#  undef SALIERI_DEFINED__deref_out_bcount_opt
+#endif
+#if !defined(__deref_out_bcount_opt)
+#  define __deref_out_bcount_opt(size)
+#  define SALIERI_DEFINED__deref_out_bcount_opt
+#endif
+
+#if defined(__deref_out_bcount_part) && defined(SALIERI_DEFINED__deref_out_bcount_part)
+#  undef __deref_out_bcount_part
+#  undef SALIERI_DEFINED__deref_out_bcount_part
+#endif
+#if !defined(__deref_out_bcount_part)
+#  define __deref_out_bcount_part(size,length)
+#  define SALIERI_DEFINED__deref_out_bcount_part
+#endif
+
+#if defined(__deref_out_bcount_part_opt) && defined(SALIERI_DEFINED__deref_out_bcount_part_opt)
+#  undef __deref_out_bcount_part_opt
+#  undef SALIERI_DEFINED__deref_out_bcount_part_opt
+#endif
+#if !defined(__deref_out_bcount_part_opt)
+#  define __deref_out_bcount_part_opt(size,length)
+#  define SALIERI_DEFINED__deref_out_bcount_part_opt
+#endif
+
+#if defined(__deref_out_ecount) && defined(SALIERI_DEFINED__deref_out_ecount)
+#  undef __deref_out_ecount
+#  undef SALIERI_DEFINED__deref_out_ecount
+#endif
+#if !defined(__deref_out_ecount)
+#  define __deref_out_ecount(size)
+#  define SALIERI_DEFINED__deref_out_ecount
+#endif
+
+#if defined(__deref_out_ecount_full) && defined(SALIERI_DEFINED__deref_out_ecount_full)
+#  undef __deref_out_ecount_full
+#  undef SALIERI_DEFINED__deref_out_ecount_full
+#endif
+#if !defined(__deref_out_ecount_full)
+#  define __deref_out_ecount_full(size)
+#  define SALIERI_DEFINED__deref_out_ecount_full
+#endif
+
+#if defined(__deref_out_ecount_full_opt) && defined(SALIERI_DEFINED__deref_out_ecount_full_opt)
+#  undef __deref_out_ecount_full_opt
+#  undef SALIERI_DEFINED__deref_out_ecount_full_opt
+#endif
+#if !defined(__deref_out_ecount_full_opt)
+#  define __deref_out_ecount_full_opt(size)
+#  define SALIERI_DEFINED__deref_out_ecount_full_opt
+#endif
+
+#if defined(__deref_out_ecount_opt) && defined(SALIERI_DEFINED__deref_out_ecount_opt)
+#  undef __deref_out_ecount_opt
+#  undef SALIERI_DEFINED__deref_out_ecount_opt
+#endif
+#if !defined(__deref_out_ecount_opt)
+#  define __deref_out_ecount_opt(size)
+#  define SALIERI_DEFINED__deref_out_ecount_opt
+#endif
+
+#if defined(__deref_out_ecount_part) && defined(SALIERI_DEFINED__deref_out_ecount_part)
+#  undef __deref_out_ecount_part
+#  undef SALIERI_DEFINED__deref_out_ecount_part
+#endif
+#if !defined(__deref_out_ecount_part)
+#  define __deref_out_ecount_part(size,length)
+#  define SALIERI_DEFINED__deref_out_ecount_part
+#endif
+
+#if defined(__deref_out_ecount_part_opt) && defined(SALIERI_DEFINED__deref_out_ecount_part_opt)
+#  undef __deref_out_ecount_part_opt
+#  undef SALIERI_DEFINED__deref_out_ecount_part_opt
+#endif
+#if !defined(__deref_out_ecount_part_opt)
+#  define __deref_out_ecount_part_opt(size,length)
+#  define SALIERI_DEFINED__deref_out_ecount_part_opt
+#endif
+
+#if defined(__deref_out_opt) && defined(SALIERI_DEFINED__deref_out_opt)
+#  undef __deref_out_opt
+#  undef SALIERI_DEFINED__deref_out_opt
+#endif
+#if !defined(__deref_out_opt)
+#  define __deref_out_opt
+#  define SALIERI_DEFINED__deref_out_opt
+#endif
+
+#if defined(__ecount) && defined(SALIERI_DEFINED__ecount)
+#  undef __ecount
+#  undef SALIERI_DEFINED__ecount
+#endif
+#if !defined(__ecount)
+#  define __ecount(size)
+#  define SALIERI_DEFINED__ecount
+#endif
+
+#if defined(__ecount_opt) && defined(SALIERI_DEFINED__ecount_opt)
+#  undef __ecount_opt
+#  undef SALIERI_DEFINED__ecount_opt
+#endif
+#if !defined(__ecount_opt)
+#  define __ecount_opt(size)
+#  define SALIERI_DEFINED__ecount_opt
+#endif
+
+#if defined(__in) && defined(SALIERI_DEFINED__in)
+#  undef __in
+#  undef SALIERI_DEFINED__in
+#endif
+#if !defined(__in)
+#  define __in
+#  define SALIERI_DEFINED__in
+#endif
+
+#if defined(__in_bcount) && defined(SALIERI_DEFINED__in_bcount)
+#  undef __in_bcount
+#  undef SALIERI_DEFINED__in_bcount
+#endif
+#if !defined(__in_bcount)
+#  define __in_bcount(size)
+#  define SALIERI_DEFINED__in_bcount
+#endif
+
+#if defined(__in_bcount_opt) && defined(SALIERI_DEFINED__in_bcount_opt)
+#  undef __in_bcount_opt
+#  undef SALIERI_DEFINED__in_bcount_opt
+#endif
+#if !defined(__in_bcount_opt)
+#  define __in_bcount_opt(size)
+#  define SALIERI_DEFINED__in_bcount_opt
+#endif
+
+#if defined(__in_ecount) && defined(SALIERI_DEFINED__in_ecount)
+#  undef __in_ecount
+#  undef SALIERI_DEFINED__in_ecount
+#endif
+#if !defined(__in_ecount)
+#  define __in_ecount(size)
+#  define SALIERI_DEFINED__in_ecount
+#endif
+
+#if defined(__in_ecount_opt) && defined(SALIERI_DEFINED__in_ecount_opt)
+#  undef __in_ecount_opt
+#  undef SALIERI_DEFINED__in_ecount_opt
+#endif
+#if !defined(__in_ecount_opt)
+#  define __in_ecount_opt(size)
+#  define SALIERI_DEFINED__in_ecount_opt
+#endif
+
+#if defined(__in_opt) && defined(SALIERI_DEFINED__in_opt)
+#  undef __in_opt
+#  undef SALIERI_DEFINED__in_opt
+#endif
+#if !defined(__in_opt)
+#  define __in_opt
+#  define SALIERI_DEFINED__in_opt
+#endif
+
+#if defined(__inout) && defined(SALIERI_DEFINED__inout)
+#  undef __inout
+#  undef SALIERI_DEFINED__inout
+#endif
+#if !defined(__inout)
+#  define __inout
+#  define SALIERI_DEFINED__inout
+#endif
+
+#if defined(__inout_bcount) && defined(SALIERI_DEFINED__inout_bcount)
+#  undef __inout_bcount
+#  undef SALIERI_DEFINED__inout_bcount
+#endif
+#if !defined(__inout_bcount)
+#  define __inout_bcount(size)
+#  define SALIERI_DEFINED__inout_bcount
+#endif
+
+#if defined(__inout_bcount_full) && defined(SALIERI_DEFINED__inout_bcount_full)
+#  undef __inout_bcount_full
+#  undef SALIERI_DEFINED__inout_bcount_full
+#endif
+#if !defined(__inout_bcount_full)
+#  define __inout_bcount_full(size)
+#  define SALIERI_DEFINED__inout_bcount_full
+#endif
+
+#if defined(__inout_bcount_full_opt) && defined(SALIERI_DEFINED__inout_bcount_full_opt)
+#  undef __inout_bcount_full_opt
+#  undef SALIERI_DEFINED__inout_bcount_full_opt
+#endif
+#if !defined(__inout_bcount_full_opt)
+#  define __inout_bcount_full_opt(size)
+#  define SALIERI_DEFINED__inout_bcount_full_opt
+#endif
+
+#if defined(__inout_bcount_opt) && defined(SALIERI_DEFINED__inout_bcount_opt)
+#  undef __inout_bcount_opt
+#  undef SALIERI_DEFINED__inout_bcount_opt
+#endif
+#if !defined(__inout_bcount_opt)
+#  define __inout_bcount_opt(size)
+#  define SALIERI_DEFINED__inout_bcount_opt
+#endif
+
+#if defined(__inout_bcount_part) && defined(SALIERI_DEFINED__inout_bcount_part)
+#  undef __inout_bcount_part
+#  undef SALIERI_DEFINED__inout_bcount_part
+#endif
+#if !defined(__inout_bcount_part)
+#  define __inout_bcount_part(size,length)
+#  define SALIERI_DEFINED__inout_bcount_part
+#endif
+
+#if defined(__inout_bcount_part_opt) && defined(SALIERI_DEFINED__inout_bcount_part_opt)
+#  undef __inout_bcount_part_opt
+#  undef SALIERI_DEFINED__inout_bcount_part_opt
+#endif
+#if !defined(__inout_bcount_part_opt)
+#  define __inout_bcount_part_opt(size,length)
+#  define SALIERI_DEFINED__inout_bcount_part_opt
+#endif
+
+#if defined(__inout_ecount) && defined(SALIERI_DEFINED__inout_ecount)
+#  undef __inout_ecount
+#  undef SALIERI_DEFINED__inout_ecount
+#endif
+#if !defined(__inout_ecount)
+#  define __inout_ecount(size)
+#  define SALIERI_DEFINED__inout_ecount
+#endif
+
+#if defined(__inout_ecount_full) && defined(SALIERI_DEFINED__inout_ecount_full)
+#  undef __inout_ecount_full
+#  undef SALIERI_DEFINED__inout_ecount_full
+#endif
+#if !defined(__inout_ecount_full)
+#  define __inout_ecount_full(size)
+#  define SALIERI_DEFINED__inout_ecount_full
+#endif
+
+#if defined(__inout_ecount_full_opt) && defined(SALIERI_DEFINED__inout_ecount_full_opt)
+#  undef __inout_ecount_full_opt
+#  undef SALIERI_DEFINED__inout_ecount_full_opt
+#endif
+#if !defined(__inout_ecount_full_opt)
+#  define __inout_ecount_full_opt(size)
+#  define SALIERI_DEFINED__inout_ecount_full_opt
+#endif
+
+#if defined(__inout_ecount_opt) && defined(SALIERI_DEFINED__inout_ecount_opt)
+#  undef __inout_ecount_opt
+#  undef SALIERI_DEFINED__inout_ecount_opt
+#endif
+#if !defined(__inout_ecount_opt)
+#  define __inout_ecount_opt(size)
+#  define SALIERI_DEFINED__inout_ecount_opt
+#endif
+
+#if defined(__inout_ecount_part) && defined(SALIERI_DEFINED__inout_ecount_part)
+#  undef __inout_ecount_part
+#  undef SALIERI_DEFINED__inout_ecount_part
+#endif
+#if !defined(__inout_ecount_part)
+#  define __inout_ecount_part(size,length)
+#  define SALIERI_DEFINED__inout_ecount_part
+#endif
+
+#if defined(__inout_ecount_part_opt) && defined(SALIERI_DEFINED__inout_ecount_part_opt)
+#  undef __inout_ecount_part_opt
+#  undef SALIERI_DEFINED__inout_ecount_part_opt
+#endif
+#if !defined(__inout_ecount_part_opt)
+#  define __inout_ecount_part_opt(size,length)
+#  define SALIERI_DEFINED__inout_ecount_part_opt
+#endif
+
+#if defined(__inout_opt) && defined(SALIERI_DEFINED__inout_opt)
+#  undef __inout_opt
+#  undef SALIERI_DEFINED__inout_opt
+#endif
+#if !defined(__inout_opt)
+#  define __inout_opt
+#  define SALIERI_DEFINED__inout_opt
+#endif
+
+#if defined(__out) && defined(SALIERI_DEFINED__out)
+#  undef __out
+#  undef SALIERI_DEFINED__out
+#endif
+#if !defined(__out)
+#  define __out
+#  define SALIERI_DEFINED__out
+#endif
+
+#if defined(__out_bcount) && defined(SALIERI_DEFINED__out_bcount)
+#  undef __out_bcount
+#  undef SALIERI_DEFINED__out_bcount
+#endif
+#if !defined(__out_bcount)
+#  define __out_bcount(size)
+#  define SALIERI_DEFINED__out_bcount
+#endif
+
+#if defined(__out_bcount_full) && defined(SALIERI_DEFINED__out_bcount_full)
+#  undef __out_bcount_full
+#  undef SALIERI_DEFINED__out_bcount_full
+#endif
+#if !defined(__out_bcount_full)
+#  define __out_bcount_full(size)
+#  define SALIERI_DEFINED__out_bcount_full
+#endif
+
+#if defined(__out_bcount_full_opt) && defined(SALIERI_DEFINED__out_bcount_full_opt)
+#  undef __out_bcount_full_opt
+#  undef SALIERI_DEFINED__out_bcount_full_opt
+#endif
+#if !defined(__out_bcount_full_opt)
+#  define __out_bcount_full_opt(size)
+#  define SALIERI_DEFINED__out_bcount_full_opt
+#endif
+
+#if defined(__out_bcount_opt) && defined(SALIERI_DEFINED__out_bcount_opt)
+#  undef __out_bcount_opt
+#  undef SALIERI_DEFINED__out_bcount_opt
+#endif
+#if !defined(__out_bcount_opt)
+#  define __out_bcount_opt(size)
+#  define SALIERI_DEFINED__out_bcount_opt
+#endif
+
+#if defined(__out_bcount_part) && defined(SALIERI_DEFINED__out_bcount_part)
+#  undef __out_bcount_part
+#  undef SALIERI_DEFINED__out_bcount_part
+#endif
+#if !defined(__out_bcount_part)
+#  define __out_bcount_part(size,length)
+#  define SALIERI_DEFINED__out_bcount_part
+#endif
+
+#if defined(__out_bcount_part_opt) && defined(SALIERI_DEFINED__out_bcount_part_opt)
+#  undef __out_bcount_part_opt
+#  undef SALIERI_DEFINED__out_bcount_part_opt
+#endif
+#if !defined(__out_bcount_part_opt)
+#  define __out_bcount_part_opt(size,length)
+#  define SALIERI_DEFINED__out_bcount_part_opt
+#endif
+
+#if defined(__out_ecount) && defined(SALIERI_DEFINED__out_ecount)
+#  undef __out_ecount
+#  undef SALIERI_DEFINED__out_ecount
+#endif
+#if !defined(__out_ecount)
+#  define __out_ecount(size)
+#  define SALIERI_DEFINED__out_ecount
+#endif
+
+#if defined(__out_ecount_full) && defined(SALIERI_DEFINED__out_ecount_full)
+#  undef __out_ecount_full
+#  undef SALIERI_DEFINED__out_ecount_full
+#endif
+#if !defined(__out_ecount_full)
+#  define __out_ecount_full(size)
+#  define SALIERI_DEFINED__out_ecount_full
+#endif
+
+#if defined(__out_ecount_full_opt) && defined(SALIERI_DEFINED__out_ecount_full_opt)
+#  undef __out_ecount_full_opt
+#  undef SALIERI_DEFINED__out_ecount_full_opt
+#endif
+#if !defined(__out_ecount_full_opt)
+#  define __out_ecount_full_opt(size)
+#  define SALIERI_DEFINED__out_ecount_full_opt
+#endif
+
+#if defined(__out_ecount_opt) && defined(SALIERI_DEFINED__out_ecount_opt)
+#  undef __out_ecount_opt
+#  undef SALIERI_DEFINED__out_ecount_opt
+#endif
+#if !defined(__out_ecount_opt)
+#  define __out_ecount_opt(size)
+#  define SALIERI_DEFINED__out_ecount_opt
+#endif
+
+#if defined(__out_ecount_part) && defined(SALIERI_DEFINED__out_ecount_part)
+#  undef __out_ecount_part
+#  undef SALIERI_DEFINED__out_ecount_part
+#endif
+#if !defined(__out_ecount_part)
+#  define __out_ecount_part(size,length)
+#  define SALIERI_DEFINED__out_ecount_part
+#endif
+
+#if defined(__out_ecount_part_opt) && defined(SALIERI_DEFINED__out_ecount_part_opt)
+#  undef __out_ecount_part_opt
+#  undef SALIERI_DEFINED__out_ecount_part_opt
+#endif
+#if !defined(__out_ecount_part_opt)
+#  define __out_ecount_part_opt(size,length)
+#  define SALIERI_DEFINED__out_ecount_part_opt
+#endif
+
+#if defined(__out_opt) && defined(SALIERI_DEFINED__out_opt)
+#  undef __out_opt
+#  undef SALIERI_DEFINED__out_opt
+#endif
+#if !defined(__out_opt)
+#  define __out_opt
+#  define SALIERI_DEFINED__out_opt
+#endif
+
+#if defined(__blocksOn) && defined(SALIERI_DEFINED__blocksOn)
+#  undef __blocksOn
+#  undef SALIERI_DEFINED__blocksOn
+#endif
+#if !defined(__blocksOn)
+#  define __blocksOn(resource)
+#  define SALIERI_DEFINED__blocksOn
+#endif
+
+#if defined(__callback) && defined(SALIERI_DEFINED__callback)
+#  undef __callback
+#  undef SALIERI_DEFINED__callback
+#endif
+#if !defined(__callback)
+#  define __callback
+#  define SALIERI_DEFINED__callback
+#endif
+
+#if defined(__checkReturn) && defined(SALIERI_DEFINED__checkReturn)
+#  undef __checkReturn
+#  undef SALIERI_DEFINED__checkReturn
+#endif
+#if !defined(__checkReturn)
+#  define __checkReturn
+#  define SALIERI_DEFINED__checkReturn
+#endif
+
+#if defined(__format_string) && defined(SALIERI_DEFINED__format_string)
+#  undef __format_string
+#  undef SALIERI_DEFINED__format_string
+#endif
+#if !defined(__format_string)
+#  define __format_string
+#  define SALIERI_DEFINED__format_string
+#endif
+
+#if defined(__in_awcount) && defined(SALIERI_DEFINED__in_awcount)
+#  undef __in_awcount
+#  undef SALIERI_DEFINED__in_awcount
+#endif
+#if !defined(__in_awcount)
+#  define __in_awcount(expr,size)
+#  define SALIERI_DEFINED__in_awcount
+#endif
+
+#if defined(__nullnullterminated) && defined(SALIERI_DEFINED__nullnullterminated)
+#  undef __nullnullterminated
+#  undef SALIERI_DEFINED__nullnullterminated
+#endif
+#if !defined(__nullnullterminated)
+#  define __nullnullterminated
+#  define SALIERI_DEFINED__nullnullterminated
+#endif
+
+
+#if defined(__nullterminated) && defined(SALIERI_DEFINED__nullterminated)
+#  undef __nullterminated
+#  undef SALIERI_DEFINED__nullterminated
+#endif
+#if !defined(__nullterminated)
+#  define __nullterminated
+#  define SALIERI_DEFINED__nullterminated
+#endif
+
+#if defined(__out_awcount) && defined(SALIERI_DEFINED__out_awcount)
+#  undef __out_awcount
+#  undef SALIERI_DEFINED__out_awcount
+#endif
+#if !defined(__out_awcount)
+#  define __out_awcount(expr,size)
+#  define SALIERI_DEFINED__out_awcount
+#endif
+
+#if defined(__override) && defined(SALIERI_DEFINED__override)
+#  undef __override
+#  undef SALIERI_DEFINED__override
+#endif
+#if !defined(__override)
+#  define __override
+#  define SALIERI_DEFINED__override
+#endif
+
+#if defined(__reserved) && defined(SALIERI_DEFINED__reserved)
+#  undef __reserved
+#  undef SALIERI_DEFINED__reserved
+#endif
+#if !defined(__reserved)
+#  define __reserved
+#  define SALIERI_DEFINED__reserved
+#endif
+
+#if defined(__success) && defined(SALIERI_DEFINED__success)
+#  undef __success
+#  undef SALIERI_DEFINED__success
+#endif
+#if !defined(__success)
+#  define __success(expr)
+#  define SALIERI_DEFINED__success
+#endif
+
+#if defined(__typefix) && defined(SALIERI_DEFINED__typefix)
+#  undef __typefix
+#  undef SALIERI_DEFINED__typefix
+#endif
+#if !defined(__typefix)
+#  define __typefix(ctype)
+#  define SALIERI_DEFINED__typefix
+#endif
+
+
+
+/***
+ ** Current attribute-style macros.
+ **
+ ** https://docs.microsoft.com/en-us/visualstudio/code-quality/using-sal-annotations-to-reduce-c-cpp-code-defects
+ ***/
+
+#if defined(_MSC_VER) && (_MSC_VER >= 1500)
+#  include <sal.h>
+#elif defined(__has_include)
+#  if __has_include(<sal.h>)
+#    include <sal.h>
+#  endif
+#endif
 
 /* Function Parameters & Return Value
  *
@@ -64,24 +1219,6 @@
 #if !defined(_In_)
 #  define _In_
 #  define SALIERI_DEFINED_In
-#endif
-
-#if defined(__in_ecount) && defined(SALIERI_DEFINED__in_ecount)
-#  undef __in_ecount
-#  undef SALIERI_DEFINED__in_ecount
-#endif
-#if !defined(__in_ecount)
-#  define __in_ecount(s)
-#  define SALIERI_DEFINED__in_ecount(s)
-#endif
-
-#if defined(__in_ecount_opt) && defined(SALIERI_DEFINED__in_ecount_opt)
-#  undef __in_ecount_opt
-#  undef SALIERI_DEFINED__in_ecount_opt
-#endif
-#if !defined(__in_ecount_opt)
-#  define __in_ecount_opt(s)
-#  define SALIERI_DEFINED__in_ecount_opt(s)
 #endif
 
 #if defined(_Out_) && defined(SALIERI_DEFINED_Out)
